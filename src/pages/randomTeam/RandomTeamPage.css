@@ -98,8 +98,20 @@
   font-size: 3rem;
   color: white;
   text-align: center;
+  vertical-align: middle;
 }
 
 .result-box{
   background-color: white;
+  border-radius: 30px;
+}
+
+.result-box-team-1{
+  box-shadow: 4px 4px 4px #67a4ff;
+  border: solid 2px #67a4ff94;
+}
+
+.result-box-team-2{
+  box-shadow: 4px 4px 4px #ff5750;
+  border: solid 2px #ff575094;
 }

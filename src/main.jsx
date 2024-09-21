@@ -8,7 +8,7 @@ import "@mantine/core/styles.layer.css";
 import "mantine-datatable/styles.layer.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <App />
+  // </React.StrictMode>
 );

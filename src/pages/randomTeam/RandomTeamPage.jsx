@@ -2,59 +2,75 @@ import './RandomTeamPage.css';
 import TextareaAutosize from 'react-textarea-autosize';
 import { Box, Button, Checkbox, Collapse, Divider, Group } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShuffle } from '@fortawesome/free-solid-svg-icons'; // Nhập icon từ gói solid
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
-import { forEach } from 'underscore';
-import { elements } from 'chart.js';
 import { ResultPlayerTile } from './components/ResultPlayerTile';
 
-export const RandomTeamPage = ({ }) => {
+export const RandomTeamPage = () => {
   const [opened, { toggle }] = useDisclosure(false);
+  const [team1, setTeam1] = useState([]);
+  const [team2, setTeam2] = useState([]);
+  const [animationKey, setAnimationKey] = useState(0); // State lưu trữ key cho animation
+
   const processPlayerName = (e) => {
     e.preventDefault();
+    setTeam1([]);
+    setTeam2([]);
     let inputNames = document.getElementById("txt-name").value;
-    if (inputNames == null || inputNames.length == 0) {
+
+    if (inputNames == null || inputNames.length === 0) {
       console.log("Error: Empty Names List");
       return;
     }
-    let nameList = inputNames.split("\n");
-    for (let i = 0; i < nameList.length; i++) {
-      //trim names
-      let element = nameList[i].trim()
-      nameList[i] = element;
-      if (nameList[i].length == 0 || (nameList.indexOf(element) != -1 && nameList.indexOf(element) != i)) {
-        nameList.splice(i--, 1);
-        continue;
-      }
-    }
 
-    console.log(`nameList before: ${nameList}`);
-    //if nameList has odd number of names => return
-    if (nameList.length % 2 != 0) {
-      console.log("Error: Number of player must be even");
+    // Split names into an array
+    let nameList = inputNames.split("\n").map(name => name.trim()).filter(Boolean);
+
+    // Remove duplicates
+    nameList = [...new Set(nameList)];
+
+    if (nameList.length % 2 !== 0) {
+      console.log("Error: Number of players must be even");
       return;
     }
 
-    //separate to 2 team
-    let start = 0;
-    let team1 = [];
-    let team2 = [];
-    let tempName = nameList;
-    while (tempName.length > 0) {
-      let randomIndex = Math.floor(Math.random() * tempName.length);
-      if (start % 2 == 0) {
-        team2.push(tempName[randomIndex]);
-      } else {
-        team1.push(tempName[randomIndex]);
-      }
-      start++;
-      tempName.splice(randomIndex, 1);
-    }
+    let tempTeam1 = [];
+    let tempTeam2 = [];
+    let tempName = [...nameList];
 
-    console.log(`nameList: ${nameList}`);
-    console.log(`team1: ${team1}`);
-    console.log(`team2: ${team2}`);
-  }
+    // Hàm thêm tuần tự tên vào các đội
+    const addPlayerToTeams = () => {
+      let start = 0;
+
+      const intervalId = setInterval(() => {
+        if (tempName.length === 0) {
+          clearInterval(intervalId); // Dừng khi hết tên
+          return;
+        }
+
+        let randomIndex = Math.floor(Math.random() * tempName.length);
+        let selectedName = tempName[randomIndex];
+
+        if (start % 2 === 0) {
+          tempTeam1.push(selectedName);
+          setTeam1([...tempTeam1]); // Cập nhật team1
+        } else {
+          tempTeam2.push(selectedName);
+          setTeam2([...tempTeam2]); // Cập nhật team2
+        }
+
+        tempName.splice(randomIndex, 1); // Xóa tên đã chọn khỏi danh sách
+        start++;
+      }, 1000); // Cứ mỗi 500ms thì thêm 1 tên
+    };
+
+    addPlayerToTeams(); // Gọi hàm thêm tuần tự
+
+    // Tăng giá trị key để làm mới animation
+    setAnimationKey(prevKey => prevKey + 1);
+  };
+
   return (
     <>
       <div className='player-form-container'>
@@ -70,7 +86,7 @@ export const RandomTeamPage = ({ }) => {
             />
           </div>
           <div>
-            <Box maw={"100%"} mx="auto" pt={20}>
+            <Box mx="auto" pt={20}>
               <Group justify="left" mb={10}>
                 <Button onClick={toggle} bg={"transparent"} fz={"2.5rem"} color={"c0974f"}>
                   Setting
@@ -80,20 +96,7 @@ export const RandomTeamPage = ({ }) => {
               <Divider my="md" mb={20} />
               <Collapse in={opened} transitionDuration={200} transitionTimingFunction="linear">
                 <div>
-                  <Checkbox
-                    defaultChecked
-                    className='cb-random-setting'
-                    label="Animated ?"
-                    size='1.5rem'
-                  />
-                  {/* <Checkbox
-                    defaultChecked
-                    label="Balanced Team"
-                  />
-                  <Checkbox
-                    defaultChecked
-                    label="I agree to sell my privacy"
-                  /> */}
+                  <Checkbox defaultChecked label="Animated?" size='1.5rem' />
                 </div>
               </Collapse>
             </Box>
@@ -111,14 +114,26 @@ export const RandomTeamPage = ({ }) => {
           <h1 className='lbl-result'>Result</h1>
           <Divider my="md" mb={20} />
           <div className='result-boxes row'>
-            <div className='col-5 result-box'>
-              <ResultPlayerTile name={"ITFakeFace"} />
+            <div className='col-md-5 result-box result-box-team-1' id='team1-box'>
+              {team1.map((name, index) => (
+                <>
+                  {index !== 0 && <Divider size={"md"} />}
+                  <ResultPlayerTile key={`${animationKey}-${index}`} name={name} />
+                </>
+              ))}
             </div>
-            <div className='col-2 vs-title'>X</div>
-            <div className='col-5 result-box'></div>
+            <div className='col-md-2 vs-title'>X</div>
+            <div className='col-md-5 result-box result-box-team-2' id='team2-box'>
+              {team2.map((name, index) => (
+                <>
+                  {index !== 0 && <Divider size={"md"} />}
+                  <ResultPlayerTile key={`${animationKey}-${index + team1.length}`} name={name} />
+                </>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
-  )
-}
+  );
+};

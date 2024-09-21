@@ -1,8 +1,9 @@
 .player-tile {
   display: flex;
-  text-align: center;
-  vertical-align: middle;
   align-items: center;
+  width: 80%;
+  transform: scale(1.1, 1.1) translateX(0%);
+  transition: transform 0.75s ease-in-out .5s;
 }
 
 .champion-img {
@@ -11,4 +12,14 @@
 
 .champion-name {
   font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.init-event {
+  transform: scale(1, 1);
+  /* Dùng transform để căn giữa */
+  position: relative;
+  /* position cần thiết để translateX hoạt động */
 }
