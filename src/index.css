@@ -1,5 +1,133 @@
+/* font BeaufortForLoL */
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-HeavyItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeaufortForLoL';
+  src: url('./assets/LOL_assets/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* font Spiegel */
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('./assets/LOL_assets/Fonts_Package/Spiegel-OTF/Spiegel-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Khai báo các biến thể khác tương tự */
+
+html{
+  overflow-x: hidden;
+}
+
 body{
   background: linear-gradient(0deg, rgba(3, 17, 27, 1) 0%, rgba(25, 59, 77, 1) 39%);
   background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  min-width: 100vw;
   min-height: 100vh;
 }

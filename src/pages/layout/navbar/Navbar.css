@@ -1,0 +1,36 @@
+
+.nav-container{
+  width: 100%;
+  height: max-content;
+  font-family: "BeaufortForLoL", sans-serif;
+  font-size: 1.5vw;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(128, 128, 128, 0.182);
+  border-radius: 0px 0px 30px 30px;
+}
+
+.navbar-link, .nav-link:visited{
+  color: #c0974f;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.navbar-link:hover {
+  color: rgb(220, 177, 102);
+  transform: scale(1.1,1.1);
+  font-weight: bold;
+  transition: color 0.5s ease, transform 1s ease;
+}
+
+.nav-item{
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  width: 5.5vw;
+  height: auto;
+  margin: 0 30px 0 30px;
+}

@@ -5,10 +5,11 @@ import React from 'react';
 import { Header } from "./header/Header";
 import { Navbar } from "./navbar/Navbar";
 import { Footer } from "./footer/Footer";
+import './MainLayout.css';
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="layout-container">
       <div className="nav">
         <Navbar />
       </div>

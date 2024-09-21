@@ -1,0 +1,105 @@
+.player-form-container{
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 30px 30px 30px 30px;
+  width: 80%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.071);
+}
+
+.form-name{
+  width: 75%;
+  display: block;
+}
+
+.txt-name{
+  border: solid #c0974f 5px;
+  border-radius: 20px;
+  padding: 25px 30px 25px 30px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.lbl-name{
+  font-family: 'BeaufortForLoL',sans-serif;
+  font-size: 3rem;
+  color: #c0974f;
+  font-weight: bold;
+}
+
+.btn-name-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn-name{
+  font-size: 2rem !important;
+  padding: 20px 40px 20px 40px !important;
+  display: block;
+  height: auto !important;
+  background-color: transparent !important;
+  font-family: 'BeaufortForLoL', sans-serif !important;
+  border: solid #c0974f 3px !important;
+  color: #c0974f !important;
+  border-radius: 10px !important;
+}
+
+.btn-name .btn-name-text{
+  margin-right: 10px;
+}
+
+.btn-name:hover{
+  background-color: #c0974f !important;
+  color: wheat !important;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.btn-name:hover .btn-name-icon {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
+.cb-random-setting{
+  color: white;
+  font-size: 2rem !important;
+}
+
+.result-box-container{
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 30px 30px 30px 30px;
+  width: 80%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.071);
+}
+
+.result-box-content{
+  display: block;
+  width: 75%;
+}
+
+.lbl-result{
+  color: #c0974f;
+  /* font-weight: bold; */
+  font-size: 3rem;
+}
+
+.vs-title{
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+}
+
+.result-box{
+  background-color: white;
+}

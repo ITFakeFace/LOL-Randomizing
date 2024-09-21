@@ -1,25 +1,27 @@
 import React from 'react';
+import './Navbar.css'
+
 export const Navbar = ({ }) => {
   return (
-    <nav>
-      <div className="row">
-        <div className="col-2">
-          <img
-            className='w-16 h-auto'
-            src={`${process.env.PUBLIC_URL}/assets/LOL_assets/LoL_Icon_Rendered/LoL_Icon_Rendered/LoL_Icon_Rendered_Hi-Res.png`}
-            alt="Logo"
-          />
-        </div>
-        <div className='col-8'>
-          <ul className='flex list-none w-1/1'>
-            <li className='nav-item'>Homepage</li>
-            <li className='nav-item'>Random Team</li>
-            <li className='nav-item'>Random Item</li>
-            <li className='nav-item'>About me</li>
+    <nav className='nav-container'>
+      <div className="row flex">
+        <div className="col-md-10 d-flex justify-content-start">
+          <a href="/">
+            <img
+              className='logo'
+              src="/assets/LOL_assets/LoL_Icon_Rendered/LoL_Icon_Rendered/LoL_Icon_Rendered_Hi-Res.png"
+              alt="Logo"
+            />
+          </a>
+          <ul className="list-unstyled flex m-0 p-0">
+            <li className="nav-item"><a className='navbar-link' href="/">HOMEPAGE</a></li>
+            <li className="nav-item"><a className='navbar-link' href="/random-team">RANDOM TEAM</a></li>
+            <li className="nav-item"><a className='navbar-link' href="#">RANDOM ITEM</a></li>
+            <li className="nav-item"><a className='navbar-link' href="#">ABOUT ME</a></li>
           </ul>
         </div>
-        <div className="col-2">
-
+        <div className="col-md-2">
+          <div>Avatar</div>
         </div>
       </div>
     </nav>

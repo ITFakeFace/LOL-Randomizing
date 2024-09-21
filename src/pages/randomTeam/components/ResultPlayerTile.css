@@ -1,0 +1,14 @@
+.player-tile {
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.champion-img {
+  width: 75px;
+}
+
+.champion-name {
+  font-size: 1.5rem;
+}
