@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   width: 80%;
-  transform: scale(1.1, 1.1) translateX(0%);
-  transition: transform 0.75s ease-in-out .5s;
+  transform: scale(1.1, 1.1);
+  transition: transform 0.75s ease-in-out;
 }
 
 .champion-img {
@@ -22,4 +22,12 @@
   /* Dùng transform để căn giữa */
   position: relative;
   /* position cần thiết để translateX hoạt động */
+}
+
+.init-event:hover {
+  transform: scale(1.1, 1.1);
+  /* Dùng transform để căn giữa */
+  position: relative;
+  /* position cần thiết để translateX hoạt động */
+  transition: transform 0.75s ease;
 }
